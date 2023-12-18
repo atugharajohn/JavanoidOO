@@ -15,7 +15,6 @@ classDiagram
         - tijolos : Tijolo[][]                 
         - tipoTijolos :  ArrayList~Integer~
         - numeroPoderes :  int                   
-        - numeroTotalTijolos :  int              
         - numeroColunas:   int                   
         - numeroLinhas :  int                    
         - fatorX :  int                          

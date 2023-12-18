@@ -236,15 +236,18 @@ public class AreaJogo extends Area implements KeyListener {
      * @return Verdadeiro se houve a colisão e Falso caso contrário.
      */
     public boolean processarColisaoBolinhaTijolo(Bolinha bolinha, Tijolo tijolo) {
-        int margem = 1; // ajuste de margem para colisões
 
         if (colisaoBlocoFixo(bolinha, tijolo)) {
+
+            int margem = 5; // para evitar bug de colisão
 
             // lida com as colisões
             if (bolinha.getCoordenadaX() + bolinha.getLargura() - margem <= tijolo.getCoordenadaX()
                     || bolinha.getCoordenadaX() + margem >= tijolo.getCoordenadaX() + tijolo.getLargura()) {
+                // inverte a direção da bolinha no eixo X
                 bolinha.setVelocidadeX(bolinha.getVelocidadeX() * -1);
             } else {
+                // inverte a direção da bolinha no eixo Y
                 bolinha.setVelocidadeY(bolinha.getVelocidadeY() * -1);
             }
 
@@ -252,7 +255,6 @@ public class AreaJogo extends Area implements KeyListener {
         }
 
         return false;
-
     }
 
     /**
