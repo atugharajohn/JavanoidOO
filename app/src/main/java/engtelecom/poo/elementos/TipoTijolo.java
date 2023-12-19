@@ -6,9 +6,10 @@ import java.awt.Color;
  * Enumeração que representa os tipos de tijlos.
  */
 public enum TipoTijolo {
-    FRACO(1, Color.BLUE, 10, 1),
-    FORTE(2, Color.PINK, 20, 2),
-    INDESTRUTIVEL(3, Color.GREEN, 30, Integer.MAX_VALUE);
+    FRACO(1, "imagens/tijolo-azul.png", 10, 1),
+    FORTE(2, "imagens/tijolo-roxo.png", 20, 2),
+    INDESTRUTIVEL(3, "imagens/tijolo-verde.png", 30,
+            Integer.MAX_VALUE);
 
     /**
      * Identificador para cada tipo de tijolo.
@@ -16,9 +17,9 @@ public enum TipoTijolo {
     public final int id;
 
     /**
-     * Cor associada a cada tipo de tijolo.
+     * Caminho associado ao arquivo da imagem de cada tipo de tijolo.
      */
-    public final Color cor;
+    public final String caminho;
 
     /**
      * Valor associado a cada tipo de tijolo.
@@ -30,9 +31,9 @@ public enum TipoTijolo {
      */
     public final int durabilidadeTotal;
 
-    TipoTijolo(int id, Color cor, int valor, int durabilidadeTotal) {
+    TipoTijolo(int id, String caminho, int valor, int durabilidadeTotal) {
         this.id = id;
-        this.cor = cor;
+        this.caminho = caminho;
         this.valor = valor;
         this.durabilidadeTotal = durabilidadeTotal;
     }

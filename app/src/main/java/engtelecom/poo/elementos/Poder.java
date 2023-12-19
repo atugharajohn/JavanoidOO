@@ -29,9 +29,8 @@ public class Poder extends Elemento implements Movimenta {
      */
     private boolean capturado;
 
-    public Poder(int id, int coordenadaX, int coordenadaY, int velocidadeX, int velocidadeY, int altura, int largura,
-            Color cor) {
-        super(coordenadaX, coordenadaY, velocidadeX, velocidadeY, ALTURA_PODER, LARGURA_PODER, COR_PODER);
+    public Poder(int id, int coordenadaX, int coordenadaY, int velocidadeX, int velocidadeY, int altura, int largura) {
+        super(coordenadaX, coordenadaY, velocidadeX, velocidadeY, ALTURA_PODER, LARGURA_PODER);
         this.tipoPoder = TipoPoder.getById(id);
         this.apareceNaTela = false;
         this.capturado = false;
@@ -48,10 +47,17 @@ public class Poder extends Elemento implements Movimenta {
     public void desenhar(Graphics2D g2d) {
         if (apareceNaTela) {
             movimentar();
-            g2d.setColor(this.cor);
-            g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
-            g2d.setColor(tipoPoder.cor);
-            g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura / 2, this.altura / 2);
+            this.imagem = carregarImagem("imagens/base-poder.png");
+            g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+
+            this.imagem = carregarImagem(this.tipoPoder.caminho);
+            g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+
+            // g2d.setColor(this.cor);
+            // g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+            // g2d.setColor(tipoPoder.cor);
+            // g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura / 2,
+            // this.altura / 2);
         }
     }
 

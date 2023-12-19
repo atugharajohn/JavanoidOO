@@ -2,21 +2,23 @@ package engtelecom.poo.elementos;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 /**
  * Representa um bloco de uma matriz de tijolos.
  */
 public class Tijolo extends Elemento {
-    public TipoTijolo modelo;
+    private TipoTijolo modelo;
     private Poder poder;
     private int durabilidadeAtual;
     private int posicao;
+    private Image imagem;
 
     public static final int LARGURA_TIJOLO = 60;
     public static final int ALTURA_TIJOLO = 30;
 
-    public Tijolo(int posicao, int id, int coordenadaX, int coordenadaY, int altura, int largura, Color cor) {
-        super(coordenadaX, coordenadaY, altura, largura, cor);
+    public Tijolo(int posicao, int id, int coordenadaX, int coordenadaY, int altura, int largura) {
+        super(coordenadaX, coordenadaY, altura, largura);
         this.modelo = TipoTijolo.getById(id);
         this.durabilidadeAtual = modelo.durabilidadeTotal;
         this.posicao = posicao;
@@ -76,8 +78,11 @@ public class Tijolo extends Elemento {
     @Override
     public void desenhar(Graphics2D g2d) {
         if (durabilidadeAtual > 0) {
-            g2d.setColor(modelo.cor);
-            g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+            this.imagem = carregarImagem(this.modelo.caminho);
+            g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+
+            // g2d.setColor(modelo.cor);
+            // g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
         }
 
         if (this.poder != null) {

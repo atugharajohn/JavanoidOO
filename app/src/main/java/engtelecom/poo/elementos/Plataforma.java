@@ -2,15 +2,19 @@ package engtelecom.poo.elementos;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 /**
  * Representa a plataforma que o usuário (jogador) pode movimentar durante o
  * jogo.
  */
 public class Plataforma extends Elemento implements Movimenta {
+
+    private Image imagem;
+
     private final static int COORDENADA_X_INICIAL = 100;
-    private final static int COORDENADA_Y_INICIAL = 540; // 540
-    private final static int ALTURA = 10;
+    private final static int COORDENADA_Y_INICIAL = 520; // 540
+    private final static int ALTURA = 25;
 
     private static final int TAM_ORIGINAL = 100;
     private static final double FATOR_TAMANHO_LIMITE = 0.2; // tamanho original não pode exceder/ter menos que esse
@@ -18,13 +22,16 @@ public class Plataforma extends Elemento implements Movimenta {
     private static final double FATOR_MUDANCA = 0.1; // o quanto aumenta por vez de poderes
 
     public Plataforma() {
-        super(COORDENADA_X_INICIAL, COORDENADA_Y_INICIAL, 0, 0, ALTURA, TAM_ORIGINAL, Color.MAGENTA);
+        super(COORDENADA_X_INICIAL, COORDENADA_Y_INICIAL, 0, 0, ALTURA, TAM_ORIGINAL);
     }
 
     @Override
     public void desenhar(Graphics2D g2d) {
-        g2d.setColor(this.cor);
-        g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+
+        this.imagem = carregarImagem("imagens/plataforma.png");
+        g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+        // g2d.setColor(this.cor);
+        // g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
     }
 
     /**

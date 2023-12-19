@@ -2,6 +2,9 @@ package engtelecom.poo.areas;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.AlphaComposite;
+import java.awt.Font;
+import java.awt.RenderingHints;
 
 /**
  * A classe representa um placar contendo pontuação e vidas do usuário
@@ -22,8 +25,8 @@ public class AreaPlacar extends Area {
     public static int fatorPontuacao;
     public static int fatorVida;
 
-    public AreaPlacar(int coordenadaX, int coordenadaY, int largura, int altura, Color cor) {
-        super(coordenadaX, coordenadaY, largura, altura, cor);
+    public AreaPlacar(int coordenadaX, int coordenadaY, int largura, int altura) {
+        super(coordenadaX, coordenadaY, largura, altura);
         int margem = 20;
         // coordenadas para a Pontuação
         this.PONTUACAO_COORDENADA_X = this.coordenadaX + margem;
@@ -71,8 +74,11 @@ public class AreaPlacar extends Area {
      */
     @Override
     public void desenharArea(Graphics2D g2d) {
-        g2d.setColor(this.cor);
-        g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+        this.imagem = carregarImagem("imagens/area-placar.png");
+        g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+
+        // g2d.setColor(this.cor);
+        // g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
 
         // desenha os blocos e informações
         desenhaInformacao(g2d, "Score", PONTUACAO_COORDENADA_X, PONTUACAO_COORDENADA_Y, PONTUACAO_LARGURA,
@@ -96,18 +102,32 @@ public class AreaPlacar extends Area {
      */
     private void desenhaBlocoPlacar(Graphics2D g2d, int informacao, int coordenadaX, int coordenadaY, int largura,
             int altura) {
-        // desenha o bloco de suporte
-        g2d.setColor(Color.GRAY);
+        // configura a transparência (0.0f completamente transparente, 1.0f
+        // completamente opaco)
+        float transparencia = 0.5f;
+        AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencia);
+        g2d.setComposite(alphaComposite);
+
+        // calcula as coordenadas para centralizar o bloco
+        int xCentralizado = coordenadaX + (largura - g2d.getFontMetrics().stringWidth(String.valueOf(informacao))) / 2;
+        int yCentralizado = coordenadaY + altura / 2 + g2d.getFontMetrics().getHeight() / 4;
+
+        // desenha o bloco de suporte semi-transparente
+        g2d.setColor(new Color(128, 128, 128, 128)); // cor cinza com opacidade (RGBA)
         g2d.fillRect(coordenadaX, coordenadaY, largura, altura);
+
+        // restaura a configuração de transparência para o normal
+        g2d.setComposite(AlphaComposite.SrcOver);
 
         // configura o texto
         g2d.setColor(Color.BLACK);
-        var fonte = carregaFonteDoDisco("f1.ttf", 40f);
+        Font fonte = carregaFonteDoDisco("f1.ttf", 40f);
         g2d.setFont(fonte);
 
         // desenha a mensagem na posição desejada
-        var mensagem = String.valueOf(informacao);
-        g2d.drawString(mensagem, coordenadaX + largura / 2, coordenadaY + altura / 2);
+        String mensagem = String.valueOf(informacao);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.drawString(mensagem, xCentralizado, yCentralizado);
     }
 
     /**
@@ -127,8 +147,11 @@ public class AreaPlacar extends Area {
         var fonte = carregaFonteDoDisco("f1.ttf", 40f);
         g2d.setFont(fonte);
 
-        // desenha a mensagem na posição desejada
-        g2d.drawString(campo, this.coordenadaX + this.largura / 3, coordenadaY - 10);
+        // calcula a coordenada para centralizar o texto
+        int xCentralizado = coordenadaX + (largura - g2d.getFontMetrics().stringWidth(campo)) / 2;
+
+        // desenha a mensagem centralizada na posição desejada
+        g2d.drawString(campo, xCentralizado, coordenadaY - 10);
     }
 
 }

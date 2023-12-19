@@ -2,6 +2,7 @@ package engtelecom.poo.elementos;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 /**
  * Bolinha que se movimenta automaticamente no jogo, sem alteração do usuário.
@@ -17,7 +18,7 @@ public class Bolinha extends Elemento implements Movimenta {
     private static final Color COR = Color.WHITE;
 
     public Bolinha() {
-        super(COORD_X_INICIAL, COORD_Y_INICIAL, VELOCIDADE_X, VELOCIDADE_Y, DIMENSAO, DIMENSAO, COR);
+        super(COORD_X_INICIAL, COORD_Y_INICIAL, VELOCIDADE_X, VELOCIDADE_Y, DIMENSAO, DIMENSAO);
     }
 
     public void resetarPosicao() {
@@ -64,8 +65,12 @@ public class Bolinha extends Elemento implements Movimenta {
      */
     @Override
     public void desenhar(Graphics2D g2d) {
-        g2d.setColor(this.cor);
-        g2d.fillOval(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+
+        this.imagem = carregarImagem("imagens/bolinha.png");
+        g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+
+        // g2d.setColor(this.cor);
+        // g2d.fillOval(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
     }
 
     /**

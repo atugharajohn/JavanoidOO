@@ -49,8 +49,8 @@ public class AreaPainel extends Area {
      */
     private boolean placarFinalDesenhado = false;
 
-    public AreaPainel(int coordenadaX, int coordenadaY, int largura, int altura, Color cor) {
-        super(coordenadaX, coordenadaY, largura, altura, cor);
+    public AreaPainel(int coordenadaX, int coordenadaY, int largura, int altura) {
+        super(coordenadaX, coordenadaY, largura, altura);
         this.melhoresPontuacoes = new ArrayList<>();
         this.melhoresJogadores = new ArrayList<>();
     }
@@ -113,10 +113,21 @@ public class AreaPainel extends Area {
      * @return O nome inserido pelo jogador.
      */
 
+    /**
+     * Mostra uma caixa de diálogo na tela para o jogador inserir seu nome.
+     *
+     * @return O nome inserido pelo jogador ou "Anonymous Player" se nenhum nome for
+     *         inserido.
+     */
     public String receberNome() {
-        String nome = JOptionPane.showInputDialog("Informe seu nome");
-        JOptionPane.showMessageDialog(null, nome);
-        return nome;
+        String nome = JOptionPane.showInputDialog("Enter your name");
+        if (nome == null || nome.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Mystery Player");
+            return "Mystery Player";
+        } else {
+            JOptionPane.showMessageDialog(null, nome);
+            return nome;
+        }
     }
 
     /**
@@ -125,20 +136,28 @@ public class AreaPainel extends Area {
      * @param g2d Objeto gráfico de desenho.
      */
     private void desenharMelhoresJogadores(Graphics2D g2d) {
-
-        g2d.setColor(this.cor);
-        g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+        this.imagem = carregarImagem("imagens/area-painel.png");
+        g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
 
         // configura o texto
-        g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.WHITE);
         var fonte = carregaFonteDoDisco("f1.ttf", 40f);
         g2d.setFont(fonte);
 
+        // desenha o título
+        String titulo = "BestOO Players";
+        int larguraTitulo = g2d.getFontMetrics().stringWidth(titulo);
+        int coordenadaXTitulo = this.coordenadaX + (this.largura - larguraTitulo) / 2;
+        int coordenadaYTitulo = this.coordenadaY + altura / 3;
+        g2d.drawString(titulo, coordenadaXTitulo, coordenadaYTitulo);
+
+        // centraliza as mensagens dos jogadores
         int coordenadaY = this.coordenadaY + altura / 2;
 
         for (int i = 0; i < this.melhoresJogadores.size(); i++) {
             String mensagem = this.melhoresJogadores.get(i) + "  " + this.melhoresPontuacoes.get(i);
-            int coordenadaX = this.coordenadaX + 20;
+            int larguraMensagem = g2d.getFontMetrics().stringWidth(mensagem);
+            int coordenadaX = this.coordenadaX + (this.largura - larguraMensagem) / 2;
             g2d.drawString(mensagem, coordenadaX, coordenadaY);
             coordenadaY += 50;
         }
@@ -256,7 +275,7 @@ public class AreaPainel extends Area {
 
             // grava as 5 posições melhores como vazias
             for (int i = 0; i < 5; i++) {
-                bw.write("null,0");
+                bw.write("Unregistered,0");
                 bw.newLine();
             }
 

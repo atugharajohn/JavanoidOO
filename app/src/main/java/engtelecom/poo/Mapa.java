@@ -153,8 +153,7 @@ public class Mapa {
                 // adiciona um poder ao tijolo
                 tijoloSorteado.setPoder(new Poder(poderId, tijoloSorteado.getCoordenadaX(),
                         tijoloSorteado.getCoordenadaY(), Poder.VELOCIDADE_X_INICIAL,
-                        Poder.VELOCIDADE_Y_INICIAL, Poder.ALTURA_PODER, Poder.LARGURA_PODER,
-                        Poder.COR_PODER));
+                        Poder.VELOCIDADE_Y_INICIAL, Poder.ALTURA_PODER, Poder.LARGURA_PODER));
 
                 numeroSorteios--;
             }
@@ -205,8 +204,7 @@ public class Mapa {
                 fatorX + j * (fatorX),
                 fatorY + i * (+fatorY),
                 Tijolo.ALTURA_TIJOLO,
-                Tijolo.LARGURA_TIJOLO,
-                (TipoTijolo.getById(modelo)).cor);
+                Tijolo.LARGURA_TIJOLO);
     }
 
     /**

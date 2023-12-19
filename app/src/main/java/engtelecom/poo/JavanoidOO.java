@@ -54,11 +54,11 @@ public class JavanoidOO extends JPanel {
 
     public JavanoidOO() {
         areas = new ArrayList<>();
-        areas.add(new AreaJogo(AREA_JOGO_X, AREA_JOGO_Y, AREA_JOGO_LARGURA, AREA_JOGO_ALTURA, AREA_JOGO_COR));
+        areas.add(new AreaJogo(AREA_JOGO_X, AREA_JOGO_Y, AREA_JOGO_LARGURA, AREA_JOGO_ALTURA));
         areas.add(
-                new AreaPlacar(AREA_PLACAR_X, AREA_PLACAR_Y, AREA_PLACAR_LARGURA, AREA_PLACAR_ALTURA, AREA_PLACAR_COR));
+                new AreaPlacar(AREA_PLACAR_X, AREA_PLACAR_Y, AREA_PLACAR_LARGURA, AREA_PLACAR_ALTURA));
         areas.add(
-                new AreaPainel(AREA_PAINEL_X, AREA_PAINEL_Y, AREA_PAINEL_LARGURA, AREA_PAINEL_ALTURA, AREA_PAINEL_COR));
+                new AreaPainel(AREA_PAINEL_X, AREA_PAINEL_Y, AREA_PAINEL_LARGURA, AREA_PAINEL_ALTURA));
     }
 
     /**

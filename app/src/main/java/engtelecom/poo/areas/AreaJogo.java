@@ -50,8 +50,8 @@ public class AreaJogo extends Area implements KeyListener {
      */
     private boolean fimDeJogo;
 
-    public AreaJogo(int coordenadaX, int coordenadaY, int largura, int altura, Color cor) {
-        super(coordenadaX, coordenadaY, largura, altura, cor);
+    public AreaJogo(int coordenadaX, int coordenadaY, int largura, int altura) {
+        super(coordenadaX, coordenadaY, largura, altura);
         inicializarElementos();
         inicializarMapa();
         inicializarConfiguracoes();
@@ -91,8 +91,11 @@ public class AreaJogo extends Area implements KeyListener {
      */
     @Override
     public void desenharArea(Graphics2D g2d) {
-        g2d.setColor(this.cor);
-        g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
+        this.imagem = carregarImagem("imagens/area-jogo.png");
+        g2d.drawImage(imagem, this.coordenadaX, this.coordenadaY, this.largura, this.altura, null);
+
+        // g2d.setColor(this.cor);
+        // g2d.fillRect(this.coordenadaX, this.coordenadaY, this.largura, this.altura);
 
         if (!this.pausado && !verificaTerminoJogo()) {
             mapa.desenharMatriz(g2d);

@@ -6,9 +6,9 @@ import java.awt.Color;
  * Enumeração que representa os tipos de poderes.
  */
 public enum TipoPoder {
-    MAX_VELOCIDADE(1, Color.ORANGE),
-    MIN_VELOCIDADE(2, Color.YELLOW),
-    VIDA_EXTRA(3, Color.GREEN);
+    MAX_VELOCIDADE(1, "imagens/max-velocidade.png"),
+    MIN_VELOCIDADE(2, "imagens/min-velocidade.png"),
+    VIDA_EXTRA(3, "imagens/vida-poder.png");
 
     /**
      * Identificador único para cada tipo de poder.
@@ -16,13 +16,13 @@ public enum TipoPoder {
     public final int id;
 
     /**
-     * Cor associada a cada tipo de poder.
+     * Caminho associado ao arquivo da imagem de cada tipo de poder.
      */
-    public final Color cor;
+    public final String caminho;
 
-    TipoPoder(int id, Color cor) {
+    TipoPoder(int id, String caminho) {
         this.id = id;
-        this.cor = cor;
+        this.caminho = caminho;
     }
 
     /**
