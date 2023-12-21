@@ -11,14 +11,6 @@ os blocos, então ele passa para o próximo nível onde os blocos são dispostos
 jogador tem 3 vidas para completar todos os níveis e perde uma vida quando a bolinha passa pela
 plataforma e atinge a parte inferior da área de jogo.
 
-<div align="center">
-
-![Paranoid](readme/paranoid.png)
-
-_Captura de tela do jogo Paranoid <br> Fonte: https://dosgames.com/game/paranoid_
-
-</div>
-
 O que torna o jogo interessante são os poderes que podem ser adquiridos ao quebrar determinados blocos. Por exemplo, ao quebrar um bloco pode ser liberado um poder com um símbolo de +
 que se for capturado pelo jogador lhe da uma vida extra. Alguns poderes podem ser ruins, como por
 exemplo, o poder com um símbolo de - que se for capturado pelo jogador faz com que a plataforma
@@ -28,7 +20,72 @@ jogo (tecla F1).
 ## 🎯 Objetivo
 O objetivo deste projeto prático é implementar uma versão do jogo Paranoid em Java, partindo de um jogo-java-swing.
 
+## Demonstração 
+Ao iniciar o jogo, a área de jogo é dessa forma:
+
+<div align="center">
+
+![JavanoidOO durante jogo](readme/game.png)
+
+_Captura de tela do jogo JavanoidOO_
+
+</div>
+
+O usuário pode pegar poderes e quebrar tijolos. 
+Os tijolos podem ser verdes, roxos ou azuis. Os tijolos verdes são indestrutíveis e contabilizam pontuação sempre que houver colisão de bolinha com tijolo, entretanto tijolos da demais cores pontuam somente ao serem quebrados. O azul quebra imediatamente após colisão e o tijolo roxo quebra somente com 2 colisões.
+
+
+<div align="center">
+
+![Tijolo Azul](readme/tijolo-azul.png)
+![Tijolo Roxo](readme/tijolo-roxo.png)
+![Tijolo Verde](readme/tijolo-verde.png)
+
+_Tipos de tijolos do jogo JavanoidOO_
+
+</div>
+
+Além disos há 3 tipos de poderes, um para auemntar o tamanho da plataforma, um para diminuir e outro para adicionar uma vida/bolinha extra ao jogador.
+
+<div align="center">
+
+![Maximizar tamanho](readme/max-velocidade.png)
+![Minimizar tamanho](readme/min-velocidade.png)
+![Vida Extra](readme/vida-poder.png)
+
+_Tipos de poderes do jogo JavanoidOO_
+
+</div>
+
+Quando o usuário não tem mais vidas, existem duas situações possíveis: Entrou entre os 5 melhores jogadores locais (registrado no disco) ou não.
+
+Caso entre, aparece uma janela para ele registrar seu nome e atualizar o nome placar de melhores jogadores.
+
+<div align="center">
+
+![Janela de Atualização](readme/game-over.png)
+
+_Atualização do placar de melhores jogadores do jogo JavanoidOO_
+
+</div>
+
+Agora, em ambas as situações, exibe o palcar final de melhores jogadores locais.
+
+<div align="center">
+
+![Janela de Atualização](readme/end-game.png)
+
+_Atualização do placar de melhores jogadores do jogo JavanoidOO_
+
+</div>
+
+## 🎮 Controles
+- **Espaço:** Pausa o jogo.
+- **Teclas de Direção:** Movimentação da plataforma.
+- **Q:** Sai do jogo.
+
 ## 📚 Requisitos funcionais do jogo
+Aprofundando os detalhes sobre o funcionamento do jogo, esses foram os requisitos fornecidos pelo professor da disciplina.
 
 - [x] **RF-1** O objetivo do jogo é fazer com que a bolinha rebata na plataforma e nas paredes para quebrar
 os blocos que estão na parte superior da área de jogo.
@@ -76,10 +133,9 @@ poderá ser liberado em cada nível deverá ser de no mínimo 3 e no máximo 5.
 que os dados sejam mantidos entre as execuções do jogo.
 
 
-## 🎮 Controles
-- **Espaço:** Pausa o jogo.
-- **Teclas de Direção:** Movimentação da plataforma.
-- **Q:** Sai do jogo.
+## 📖 Futuras Implementações 
+- Adicionar uma imagem de fundo diferente para cada tipo de nível.
+- Colocar efeitos sonoros de colisão da bolinha e finalização de jogo. 
 
 ## 📖 Diagrama UML 
 
