@@ -290,11 +290,12 @@ class AreaPlacar {
         + desenharArea(g2d: Graphics2D)  void
         + receberNome() String
         - desenharMelhoresJogadores(g2d: Graphics2D) void
-        - atualizaMelhoresJogadores(nome: String) void
-        - salvarMelhoresEmArquivo(nomeArquivo: String) void
+        - atualizaMelhoresJogadores(n: String) void
+        - salvarMelhoresEmArquivo(n: String) void
         + novaMelhorPontuacao() boolean
-        - ler(nomeDoArquivo: String) void
-        - criarArquivo(nomeDoArquivo: String) void
+        - ordenarMelhoresJogadores(n: String) void
+        - ler(n: String) void
+        - criarArquivo(n: String) void
     }
 
 class AreaJogo {

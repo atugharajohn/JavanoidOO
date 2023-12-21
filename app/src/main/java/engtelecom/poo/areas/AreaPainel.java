@@ -164,38 +164,53 @@ public class AreaPainel extends Area {
     }
 
     /**
-     * Atualiza arquivo com a listagem de melhores jogadores.
+     * Adiciona o jogador atual à lista de melhores jogadores se sua pontuação
+     * for maior do que pelo menos um jogador existente.
      * 
-     * @param nome Nome do jogador atual.
+     * @param nome O nome do jogador atual.
      */
     private void atualizaMelhoresJogadores(String nome) {
         String jogadorAtual = nome;
         int pontuacaoAtual = AreaPlacar.fatorPontuacao;
 
-        ArrayList<String> jogadores = new ArrayList<>(this.melhoresJogadores);
-        ArrayList<Integer> pontuacoes = new ArrayList<>(this.melhoresPontuacoes);
+        // adiciona o jogador atual às listas
+        melhoresJogadores.add(jogadorAtual);
+        melhoresPontuacoes.add(pontuacaoAtual);
 
-        // verifica se o jogador atual entra na lista
-        for (int i = 0; i < this.melhoresJogadores.size(); i++) {
-            if (pontuacaoAtual >= pontuacoes.get(i)) {
-                pontuacoes.add(i, pontuacaoAtual);
-                jogadores.add(i, jogadorAtual);
+        // ordena as listas em ordem decrescente de pontuação
+        ordenarMelhoresJogadores();
 
-                // remove o último elemento se a lista ficar maior que 5
-                if (pontuacoes.size() > 5) {
-                    pontuacoes.remove(5);
-                    jogadores.remove(5);
-                }
-                break; // já adicionou o novo melhor jogador
-            }
+        // Remove o último elemento se a lista ficar maior que 5
+        if (melhoresJogadores.size() > 5) {
+            melhoresJogadores.remove(5);
+            melhoresPontuacoes.remove(5);
         }
 
-        // atualiza a lista de melhores jogadores e pontuações
-        this.melhoresJogadores = jogadores;
-        this.melhoresPontuacoes = pontuacoes;
-
-        // salva as listas em um arquivo
+        // atualiza o arquivo
         salvarMelhoresEmArquivo("melhoresJogadores.csv");
+    }
+
+    /**
+     * Ordena as listas de melhores jogadores em ordem decrescente com base na
+     * pontuação.
+     */
+    private void ordenarMelhoresJogadores() {
+        for (int i = 1; i < melhoresPontuacoes.size(); i++) {
+            int pontuacaoAtual = melhoresPontuacoes.get(i);
+            String jogadorAtual = melhoresJogadores.get(i);
+            int j = i - 1;
+
+            // Move os elementos maiores para a direita
+            while (j >= 0 && melhoresPontuacoes.get(j) < pontuacaoAtual) {
+                melhoresPontuacoes.set(j + 1, melhoresPontuacoes.get(j));
+                melhoresJogadores.set(j + 1, melhoresJogadores.get(j));
+                j--;
+            }
+
+            // Insere o jogador atual na posição correta
+            melhoresPontuacoes.set(j + 1, pontuacaoAtual);
+            melhoresJogadores.set(j + 1, jogadorAtual);
+        }
     }
 
     /**
