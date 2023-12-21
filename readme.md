@@ -1,4 +1,7 @@
 # JavanoidOO 🎮
+> Autora: Luiza Kuze <br>
+> Data: 13/12/2023 <br>
+> Projeto final de [POO](https://github.com/luizakuze/POO) 
 
 ## 📌 Descrição
 [Paranoid](https://archive.org/details/msdos_Paranoid_shareware) é um jogo de computador para o sistema operacional DOS desenvolvido pelos irmãos Ben e Tom North (The Bit Bucket Brothers) durante suas férias escolares em 19921 sendo esse inspirado nos jogos Breakout (1976) e Arkanoid (1986). 
