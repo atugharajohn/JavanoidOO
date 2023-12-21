@@ -20,18 +20,15 @@ diminua de tamanho.
 O objetivo deste projeto prático é implementar uma versão do jogo Paranoid em Java, partindo de um jogo-java-swing.
 
 ## 🎥 Demonstração
-
-Ao iniciar o jogo, a área de jogo é dessa forma:
-
 <div align="center">
 
 <img src="readme/gameplay.gif" alt="JavanoidOO durante jogo" width="80%" />
 
-_Captura de tela do jogo JavanoidOO_
+_Jogo JavanoidOO_
 
 </div>
 
-## ✨ Detalhes 
+## ✨ Requisitos em Destaque
 
 Observe que o jogador tem a oportunidade de adquirir poderes e destruir tijolos durante o jogo, assim como no Paranoid. 
 
@@ -44,7 +41,7 @@ Os tijolos podem ser classificados como verdes, roxos ou azuis. Os tijolos verde
 <img src="readme/tijolo-roxo.png" alt="Tijolo Roxo" width="30%" />
 <img src="readme/tijolo-verde.png" alt="Tijolo Verde" width="30%" />
 
-_Tipos de tijolos do jogo JavanoidOO_
+_Tipos de tijolos_
 
 </div>
 
@@ -56,7 +53,7 @@ Além disso, há três tipos de poderes: um que aumenta o tamanho da plataforma,
 <img src="readme/min-velocidade.png" alt="Minimizar tamanho" width="30%" />
 <img src="readme/vida-poder.png" alt="Vida Extra" width="30%" />
 
-_Tipos de poderes do jogo JavanoidOO_
+_Tipos de poderes_
 
 </div>
 
@@ -139,9 +136,11 @@ poderá ser liberado em cada nível deverá ser de no mínimo 3 e no máximo 5.
 que os dados sejam mantidos entre as execuções do jogo.
 
 
-## 📖 Futuras Implementações 
-- Adicionar uma imagem de fundo diferente para cada tipo de nível.
-- Colocar efeitos sonoros de colisão da bolinha e finalização de jogo. 
+## 💡 Futuras Implementações 
+- [ ]  Adicionar imagens de fundo distintas para cada tipo de nível, proporcionando uma experiência visual mais rica.
+- [ ] Implementar efeitos sonoros para colisões da bolinha, interações com os blocos e momentos de finalização de jogo, criando uma atmosfera auditiva envolvente.
+- [ ] Transformar os diferentes níveis do jogo em enumerações, simplificando o gerenciamento e facilitando futuras expansões.
+- [ ] Introduzir novos tipos de poderes, como alterações na velocidade da bolinha em jogo, proporcionando desafios adicionais e estratégias diferenciadas.
 
 ## 📖 Diagrama UML 
 
@@ -374,7 +373,9 @@ class Area{
 
 ```
 
+## 📃 Referências
+Todas as imagens e fontes incorporadas neste projeto foram obtidas de fontes que oferecem licenças de uso gratuito, garantindo conformidade legal e respeito aos direitos autorais. 
 
-## Licença 📜
+## 📜 Licença 
 
 Este projeto é licenciado sob a [MIT License](https://github.com/luizakuze/JavanoidOO/blob/main/license)
