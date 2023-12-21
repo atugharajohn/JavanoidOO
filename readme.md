@@ -13,7 +13,7 @@ plataforma e atinge a parte inferior da área de jogo.
 
 <div align="center">
 
-![Paranoid](src/main/resources/readme/paranoid.png)
+![Paranoid](readme/paranoid.png)
 
 _Captura de tela do jogo Paranoid <br> Fonte: https://dosgames.com/game/paranoid_
 
