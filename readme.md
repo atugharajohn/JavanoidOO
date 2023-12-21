@@ -1,4 +1,4 @@
-# JavanoidOO 🕹
+# JavanoidOO 🎮
 
 ## 📌 Descrição
 [Paranoid](https://archive.org/details/msdos_Paranoid_shareware) é um jogo de computador para o sistema operacional DOS desenvolvido pelos irmãos Ben e Tom North (The Bit Bucket Brothers) durante suas férias escolares em 19921 sendo esse inspirado nos jogos Breakout (1976) e Arkanoid (1986). 
@@ -14,72 +14,78 @@ plataforma e atinge a parte inferior da área de jogo.
 O que torna o jogo interessante são os poderes que podem ser adquiridos ao quebrar determinados blocos. Por exemplo, ao quebrar um bloco pode ser liberado um poder com um símbolo de +
 que se for capturado pelo jogador lhe da uma vida extra. Alguns poderes podem ser ruins, como por
 exemplo, o poder com um símbolo de - que se for capturado pelo jogador faz com que a plataforma
-diminua de tamanho. É possível ver a lista de poderes disponíveis ao acessar o menu de ajuda do
-jogo (tecla F1).
+diminua de tamanho. 
 
 ## 🎯 Objetivo
 O objetivo deste projeto prático é implementar uma versão do jogo Paranoid em Java, partindo de um jogo-java-swing.
 
-## Demonstração 
+## 🎥 Demonstração
+
 Ao iniciar o jogo, a área de jogo é dessa forma:
 
 <div align="center">
 
-![JavanoidOO durante jogo](readme/game.png)
+<img src="readme/gameplay.gif" alt="JavanoidOO durante jogo" width="80%" />
 
 _Captura de tela do jogo JavanoidOO_
 
 </div>
 
-O usuário pode pegar poderes e quebrar tijolos. 
-Os tijolos podem ser verdes, roxos ou azuis. Os tijolos verdes são indestrutíveis e contabilizam pontuação sempre que houver colisão de bolinha com tijolo, entretanto tijolos da demais cores pontuam somente ao serem quebrados. O azul quebra imediatamente após colisão e o tijolo roxo quebra somente com 2 colisões.
+## ✨ Detalhes 
+
+Observe que o jogador tem a oportunidade de adquirir poderes e destruir tijolos durante o jogo, assim como no Paranoid. 
+
+Os tijolos podem ser classificados como verdes, roxos ou azuis. Os tijolos verdes são indestrutíveis e contribuem para a pontuação sempre que a bola colide com eles. Por outro lado, tijolos de outras cores pontuam apenas quando são quebrados. Os tijolos azuis se quebram imediatamente após a colisão, enquanto os tijolos roxos requerem duas colisões para serem destruídos.
 
 
 <div align="center">
 
-![Tijolo Azul](readme/tijolo-azul.png)
-![Tijolo Roxo](readme/tijolo-roxo.png)
-![Tijolo Verde](readme/tijolo-verde.png)
+<img src="readme/tijolo-azul.png" alt="Tijolo Azul" width="30%" />
+<img src="readme/tijolo-roxo.png" alt="Tijolo Roxo" width="30%" />
+<img src="readme/tijolo-verde.png" alt="Tijolo Verde" width="30%" />
 
 _Tipos de tijolos do jogo JavanoidOO_
 
 </div>
 
-Além disos há 3 tipos de poderes, um para auemntar o tamanho da plataforma, um para diminuir e outro para adicionar uma vida/bolinha extra ao jogador.
+Além disso, há três tipos de poderes: um que aumenta o tamanho da plataforma, outro que a diminui e um terceiro que adiciona uma vida/bola extra ao jogador.
 
 <div align="center">
 
-![Maximizar tamanho](readme/max-velocidade.png)
-![Minimizar tamanho](readme/min-velocidade.png)
-![Vida Extra](readme/vida-poder.png)
+<img src="readme/max-velocidade.png" alt="Maximizar tamanho" width="30%" />
+<img src="readme/min-velocidade.png" alt="Minimizar tamanho" width="30%" />
+<img src="readme/vida-poder.png" alt="Vida Extra" width="30%" />
 
 _Tipos de poderes do jogo JavanoidOO_
 
 </div>
 
-Quando o usuário não tem mais vidas, existem duas situações possíveis: Entrou entre os 5 melhores jogadores locais (registrado no disco) ou não.
 
-Caso entre, aparece uma janela para ele registrar seu nome e atualizar o nome placar de melhores jogadores.
+Quando o jogador fica sem vidas, duas situações podem ocorrer: entrar para os cinco melhores jogadores locais (registrado no disco) ou não. 
 
-<div align="center">
-
-![Janela de Atualização](readme/game-over.png)
-
-_Atualização do placar de melhores jogadores do jogo JavanoidOO_
-
-</div>
-
-Agora, em ambas as situações, exibe o palcar final de melhores jogadores locais.
+Caso entre, uma janela é exibida para que ele registre seu nome e atualize o painel dos melhores jogadores.
 
 <div align="center">
 
-![Janela de Atualização](readme/end-game.png)
+<img src="readme/game-over.png" alt="Janela de Atualização" width="80%" />
 
-_Atualização do placar de melhores jogadores do jogo JavanoidOO_
+_Atualização do painel de melhores jogadores_
 
 </div>
 
-## 🎮 Controles
+
+Em ambas as situações, é exibido o painel final dos melhores jogadores locais.
+
+<div align="center">
+
+<img src="readme/end-game.png" alt="Tela Final" width="80%" />
+
+_Painel de melhores jogadores_
+
+</div>
+
+
+## 📕 Controles
 - **Espaço:** Pausa o jogo.
 - **Teclas de Direção:** Movimentação da plataforma.
 - **Q:** Sai do jogo.
@@ -367,3 +373,8 @@ class Area{
     TipoPoder ..> Poder
 
 ```
+
+
+## Licença 📜
+
+Este projeto é licenciado sob a [MIT License](https://github.com/luizakuze/JavanoidOO/blob/main/license)
