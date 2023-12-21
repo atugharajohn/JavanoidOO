@@ -3,11 +3,15 @@ package engtelecom.poo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.event.KeyListener;
+import java.net.URL;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -113,6 +117,32 @@ public class JavanoidOO extends JPanel {
 
         // sincroniza o contexto gráfico
         Toolkit.getDefaultToolkit().sync();
+    }
+
+    /**
+     * Carrega uma imagem. Elementos do jogo e áreas precisam de uma imagem para
+     * serem representar graficamente.
+     * 
+     * @param arquivo nome do arquivo de imagem que deve estar na pasta
+     *                /src/main/resources
+     * @return imagem carregada
+     */
+    public Image carregarImagem(String arquivo) {
+        try {
+            var ii = new ImageIcon(getClass().getResource("/" + arquivo));
+
+            if ((ii == null) || (ii.getImageLoadStatus() != MediaTracker.COMPLETE)) {
+                URL url = getClass().getResource("/" + arquivo);
+                if (url == null)
+                    throw new IllegalArgumentException("Imagem " + arquivo + " não encontrada");
+                ii = new ImageIcon(url);
+            }
+            return ii.getImage();
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar imagem: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

@@ -1,5 +1,4 @@
 # JavanoidOO
-Projeto final de POO 🎮
 
 
 ```mermaid
@@ -37,7 +36,8 @@ classDiagram
         - areas:  ArrayList~Area~
         - timer : Timer                 
         +iniciar() void              
-        +paint() void                     
+        +paint() void       
+        +carregarImagem(c: String) void          
         }
 
    
@@ -46,7 +46,7 @@ classDiagram
         FRACO
         FORTE
         INDESTRUTIVEL
-        +cor(c: Color)
+        +Caminho(c: String)
         +valor(v: int)
         +id(i: id)
         +durabilidadeTotal(i: int)
@@ -73,7 +73,7 @@ classDiagram
         MAX_VELOCIDADE
         MIN_VELOCIDADE
         VIDA_EXTRA
-        +cor (c: Color)
+        +caminho (c: String)
         +id (i: int)
         +getById(i: id)
     }
@@ -114,10 +114,10 @@ class Plataforma {
         - velocidadeY:  int
         - altura : int
         - largura : int
-        - cor : Color
-        + Elemento(x: int, y: int, vx: int, vy: int, a: int, l: int, c: Color)
-        + Elemento(x: int, y: int, a: int, l: int, c: Color)
+        + Elemento(x: int, y: int, vx: int, vy: int, a: int, l: int)
+        + Elemento(x: int, y: int, a: int, l: int)
         + desenhar(g2d: Graphics2D) void
+        +carregarImagem(c: String) void
 
     }
 
@@ -189,7 +189,7 @@ class Area{
     - coordenadaY:  int
     - largura : int
     - altura : int
-    - cor:  Color
+    - imagem: Image
     + desenharArea(g2d: Graphics2D) void
     + carregaFonteDoDisco(n: String, t: float) Font
 }
