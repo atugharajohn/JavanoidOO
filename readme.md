@@ -20,7 +20,7 @@ exemplo, o poder com um símbolo de - que se for capturado pelo jogador faz com 
 diminua de tamanho. 
 
 ## 🎯 Objetivo
-O objetivo deste projeto prático é implementar uma versão do jogo Paranoid em Java, partindo de um jogo-java-swing.
+O objetivo deste projeto prático é implementar uma versão do jogo Paranoid em Java, uma versão do jogo utilizando java-swing.
 
 ## 🎥 Demonstração
 <div align="center">
